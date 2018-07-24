@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 public partial class MainControl  {
 		
@@ -28,9 +29,14 @@ public partial class MainControl  {
         if (!HasNextState())
         {
             var cur = MainStateEvent.Cur();
-            if (cur!=null && cur.id == MainStateEventId.BUTTON && cur.name == "BUT05" )
+            if (cur!=null && cur.id == MainStateEventId.BUTTON )
             { 
-                SetNextState(st);
+                var s = RegexUtil.Get1stMatch(@"\/[^\/]+?$",cur.name);
+                UnityEngine.Debug.Log(s);
+                if (s == "/BUT05")
+                {
+                    SetNextState(st);
+                }
             }
         }
     }

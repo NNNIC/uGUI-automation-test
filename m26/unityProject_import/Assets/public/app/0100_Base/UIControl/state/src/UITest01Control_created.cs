@@ -179,7 +179,7 @@ public partial class UITest01Control : StateManager {
         set_parent();
         if (!HasNextState())
         {
-            SetNextState(S_SCROLL_VIEW);
+            SetNextState(S_BUT01);
         }
         if (HasNextState())
         {
